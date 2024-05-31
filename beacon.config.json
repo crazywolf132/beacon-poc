@@ -1,0 +1,8 @@
+{
+  "servers": [],
+  "secretKey": "",
+  "certPath": "",
+  "keyPath": "",
+  "protocol": "ws",
+  "plugins": []
+}

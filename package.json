@@ -1,0 +1,29 @@
+{
+  "name": "beacon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "crazywolf132",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.12.12",
+    "@types/seedrandom": "^3.0.8",
+    "@types/ws": "^8.5.10",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "https": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "seedrandom": "^3.0.5",
+    "uuid": "^9.0.1",
+    "ws": "^8.17.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "servers": [
+    "ws://localhost:8081",
+    "ws://localhost:8082",
+    "ws://localhost:8083"
+  ],
+  "secretKey": "your_secret_key",
+  "certPath": "cert.pem",
+  "keyPath": "key.pem",
+  "protocol": "ws",
+  "plugins": [
+    "examplePlugin"
+  ]
+}
