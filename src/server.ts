@@ -6,6 +6,7 @@ import ws, { WebSocketServer } from 'ws';
 
 import { loadConfig } from './config';
 import orchestrator from './orchestrator';
+import pluginManager from './plugins';
 
 
 const config = loadConfig();
@@ -26,6 +27,7 @@ wss = new WebSocketServer({ server });
 
 wss.on('connection', (ws, req) => {
   console.log(`Connection accepted: ${req.url}`);
+  pluginManager.executeHook('onConnection', ws, req);
 
 //   authenticateToken(config)(req, (err) => {
 //     if (err) {
@@ -36,6 +38,8 @@ wss.on('connection', (ws, req) => {
     ws.on('message', (message: string) => {
         const parsedMessage = JSON.parse(message);
         const { event, data, filter, timestamp } = parsedMessage;
+
+        pluginManager.executeHook('onMessage', ws, parsedMessage);
 
         switch (event) {
             case 'subscribe':
@@ -60,10 +64,12 @@ wss.on('connection', (ws, req) => {
 
     ws.on('close', () => {
         console.log('Client disconnected');
+        pluginManager.executeHook('onClose', ws);
     })
 
     ws.on('error', (err) => {
         console.error('WebSocket error:', err);
+        pluginManager.executeHook('onError', ws, err);
     });
 //   })
 });
