@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "keywords": [],
   "author": "crazywolf132",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.12",
     "@types/seedrandom": "^3.0.8",
@@ -20,10 +22,14 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "https": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
-    "seedrandom": "^3.0.5",
+    "pure-rand": "^6.1.0",
     "uuid": "^9.0.1",
+    "winston": "^3.13.0",
     "ws": "^8.17.0"
   }
 }

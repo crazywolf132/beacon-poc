@@ -9,18 +9,18 @@ export const generateToken = (secretKey: string, payload: any = {}) => {
 
 type AuthCallback = (err: Error | null, client: WebSocket | undefined) => void;
 
-export const authenticateToken = (config: Config) => (req: IncomingMessage, callback: AuthCallback = () => {}) => {
+export const authenticateToken = (config: Config) => (req: IncomingMessage, callback: AuthCallback = () => { }) => {
     const token = req.headers['sec-websocket-protocol'];
 
     if (typeof token === 'string') {
-        jwt.verify(token, config.secretKey, (err, user) => {
+        jwt.verify(token, config.secretKey, (err, decoded) => {
             if (err) {
                 return callback(new Error('Unauthorized'), undefined);
             }
-            (req as any).user = user;
+            (req as any).user = decoded;
             callback(null, undefined);
         });
     } else {
-        callback(new Error('No token provided'), undefined)
+        callback(new Error('No token provided'), undefined);
     }
-}
+};

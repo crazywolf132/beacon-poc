@@ -1,4 +1,5 @@
 import { loadConfig } from "../config";
+import { logger } from "../utils";
 
 export interface Plugin {
     name: string;
@@ -26,7 +27,7 @@ class PluginManager {
                 this.plugins.push(plugin);
                 plugin.init(this.createContext());
             } catch (error) {
-                console.error(`Failed to load plugin: ${pluginName}`)
+                logger.error(`Failed to load plugin: ${pluginName}`, error);
             }
         });
     }

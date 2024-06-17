@@ -1,31 +1,7 @@
 [
-    {
-        "event": "subscribe",
-        "data": "update",
-        "filter": "(data) => data.user === 'admin'"
-    },
-    {
-        "event": "update",
-        "data": {
-            "user": "admin",
-            "message": "Hello, world!"
-        }
-    },
-    {
-        "event": "update",
-        "data": {
-            "user": "dave",
-            "message": "Hello, world!"
-        }
-    },
-    {
-        "event": "logout",
-        "data": {
-            "user": "dave"
-        }
-    },
-    {
-        "event": "unsubscribe",
-        "data": "update"
-    }
+{"event": "subscribe","data": "update","filter": "(data) => data.user === 'admin'"},
+{"event": "update","data": {"user": "admin","message": "Hello, world!"}},
+{"event": "update","data": {"user": "dave","message": "Hello, world!"}},
+{"event": "logout","data": {"user": "dave"}},
+{"event": "unsubscribe","data": "update"}
 ]
